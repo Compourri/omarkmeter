@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "george.omarkmeter",
+  "name": "Omark Meter",
+  "version": "0.1.0",
+  "author": "george",
+  "description": "Robik-inspired Rainmeter clock on the desktop background (MVP: hero time + script weekday + date). Modular slots for visualizer/metrics later.",
+  "kinds": ["service"],
+  "entryPoints": {
+    "service": "Clock.qml"
+  }
+}
