@@ -6,12 +6,10 @@ Robik-inspired Rainmeter clock for Omarchy (Hyprland + Quickshell) — renders o
 
 ## Features (MVP)
 
-*   Huge translucent time `hh.mm` (dot separator, 24h) — **Montserrat SemiBold 600** (middleground between Thin/ExtraBold)
+*   Huge translucent time `hh.mm` (dot separator, 24h) - **Montserrat SemiBold 600
 *   Script weekday overlay — **MovingSkate** (brush, `Typhoon Type`)
 *   Divider + `D MMMM YYYY` date
 *   Theme-following accent (`Color.accent`)
-*   Double-click desktop: left → `omarchy-theme-bg-switcher`, right → `omarchy-theme-switcher`
-*   Modular `Loader` stubs for Phase 2 visualizer/metrics
 
 ## Install
 
