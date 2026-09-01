@@ -34,8 +34,8 @@ Add to `~/.config/omarchy/shell.json` `plugins: [{id:"george.omarkmeter"}]` is h
 
 *   `id: george.omarkmeter` — `name: Omark Meter` — `kinds: [service]` — `entryPoints.service: Clock.qml`
 *   **Fonts & Licenses:**
-    *   **Montserrat-SemiBold.ttf**: Google Fonts (Julieta Ulanovsky), SIL Open Font License 1.1 (`assets/OFL.txt`). Source: [google/fonts/ofl/montserrat](https://github.com/google/fonts/tree/main/ofl/montserrat). SHA-256: `e3e1c254ac42e0de79d337a45c39c9421e49e032365d56f3edf58eacfd1c7845`.
-    *   **DancingScript.ttf**: Google Fonts (Impallari Type), SIL Open Font License 1.1 (`assets/OFL.txt`). Source: [google/fonts/ofl/dancingscript](https://github.com/google/fonts/tree/main/ofl/dancingscript). SHA-256: `21808625578fe8d8cd10cb684be546dca077b27cd03a53a2f1ec11dc743c924c`.
+    *   **Montserrat-SemiBold.ttf**: Google Fonts (Julieta Ulanovsky), SIL Open Font License 1.1 (`assets/OFL.txt`). Upstream pin: [google/fonts@c287431f/ofl/montserrat](https://github.com/google/fonts/blob/c287431fa3a02798e986cb08c3504ba4e0a5c43d/ofl/montserrat/static/Montserrat-SemiBold.ttf). SHA-256: `e3e1c254ac42e0de79d337a45c39c9421e49e032365d56f3edf58eacfd1c7845`.
+    *   **DancingScript.ttf**: Google Fonts (Impallari Type), SIL Open Font License 1.1 (`assets/OFL.txt`). Upstream pin: [google/fonts@c287431f/ofl/dancingscript](https://github.com/google/fonts/blob/c287431fa3a02798e986cb08c3504ba4e0a5c43d/ofl/dancingscript/DancingScript%5Bwght%5D.ttf). SHA-256: `21808625578fe8d8cd10cb684be546dca077b27cd03a53a2f1ec11dc743c924c`.
 
 ## License
 

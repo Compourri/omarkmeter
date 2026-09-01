@@ -1,4 +1,93 @@
-<head><meta charset=utf-8><title>404 Page not found</title>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.120.4"><meta name=description content="SIL Open Font License"><link rel=stylesheet href=https://openfontlicense.org/plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=https://openfontlicense.org/plugins/themify-icons/themify-icons.css><link rel=icon href=./images/favicon.png type=image/x-icon><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel=stylesheet><script src=https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js></script><style>:root{--primary-color:#005CB9;--secondary-color:#00A7E1;--body-color:#f9f9f9;--text-color:#111111;--text-color-dark:#000000;--text-color-light:#333333;--white-color:#ffffff;--light-color:#00A7E1;--primary-light-color:#89A8CC;--secondary-light-color:#97DAF5;--font-family:Merriweather}</style><link href=https://openfontlicense.org/css/style.min.css rel=stylesheet media=screen><script src=https://openfontlicense.org/plugins/jquery/jquery-1.12.4.js></script><script src=https://openfontlicense.org/plugins/jquery/jquery-ui.js></script><script src=https://openfontlicense.org/plugins/bootstrap/bootstrap.min.js></script><script src=https://openfontlicense.org/plugins/match-height/jquery.matchHeight-min.js></script><meta property="og:image" content="https://openfontlicense.org/images/OFL23-Bluebig.png"><meta name=twitter:image content="https://openfontlicense.org/images/OFL23-Bluebig.png"><meta name=twitter:card content="summary"><meta property="og:image:width" content="512"><meta property="og:image:height" content="512"><meta property="og:image:type" content="image/png"><meta name=twitter:title content="404 Page not found"><meta name=twitter:description content="The website of the SIL Open Font License"><meta property="og:title" content="404 Page not found"><meta property="og:description" content="The website of the SIL Open Font License"><meta property="og:type" content="website"><meta property="og:url" content="https://openfontlicense.org/404.html"><meta name=twitter:card content="summary"><meta name=twitter:title content="404 Page not found"><meta name=twitter:description content="The website of the SIL Open Font License"></head><style>.msg{font-size:50px;color:var(--primary-color)}.not-found{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:5vh;font-size:200%;text-decoration:underline;color:var(--primary-color)}.not-found a{display:inline-block}</style><section class=section><div class=container><div class="row justify-content-center"><div class="col-12 text-center"><div class="section px-4 bg-white shadow text-center"><i class="ti-alert icon text-primary d-block mb-4"></i><p class=msg>Sorry, this page does not exist...</p><br><br><br><i class="ti-map icon text-primary d-block mb-4"></i>
-<a href=./full-site-map title="Go to the site map" class=not-found>Site map</a><br><br><br><i class="ti-home icon text-primary d-block mb-4"></i>
-<a href=https://openfontlicense.org/ title="Go to the homepage" class=not-found>Homepage - openfontlicense.org</a></div></div></div></div></section><footer class="section pb-4"><div class=container><div class="row align-items-right"><div class="col-md-12 text-md-center text-center"><p class="mb-md-0 text-md-center mb-12">The SIL Open Font License is maintained by Victor Gaultney and Nicolas Spalinger. <a href=./contact>Contact us</a>.</br>This site is Copyright © 2005–2026  <a href=https://www.sil.org>SIL International (sil.org)</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href=./privacy>Privacy policy</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href=./colophon>Colophon</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href=./full-site-map>Site map</a></p></div></div></div></footer><script src=https://openfontlicense.org/js/script.min.js></script>
+Copyright 2016 The Dancing Script Project Authors (https://github.com/googlefonts/DancingScript), with Reserved Font Name 'Dancing Script'.
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+
+
+-----------------------------------------------------------
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-----------------------------------------------------------
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded, 
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the
+copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting,
+or substituting -- in part or in whole -- any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+"Author" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION & CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE.
