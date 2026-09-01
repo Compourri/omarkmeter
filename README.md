@@ -6,8 +6,8 @@ Robik-inspired Rainmeter clock for Omarchy (Hyprland + Quickshell) — renders o
 
 ## Features (MVP)
 
-*   Huge translucent time `hh:mm` (colon separator, 24h) — **Montserrat SemiBold 600** (middleground between Thin/ExtraBold)
-*   Script weekday overlay — **MovingSkate** (brush, `Typhoon Type`)
+*   Huge translucent time `hh:mm` (colon separator, 24h) — **Montserrat SemiBold** (Google Fonts, SIL Open Font License 1.1)
+*   Script weekday overlay — **Dancing Script** (Google Fonts, SIL Open Font License 1.1)
 *   Divider + `D MMMM YYYY` date
 *   Theme-following accent (`Color.accent`)
 *   Double-click desktop: left → `omarchy-theme-bg-switcher`, right → `omarchy-theme-switcher`
@@ -30,12 +30,15 @@ Add to `~/.config/omarchy/shell.json` `plugins: [{id:"george.omarkmeter"}]` is h
 
 `RobikClock.qml`: `heroSize`, `scriptSize`, `heroOpacity`, `heroColor`, `dividerWidth` — `Clock.qml`: `offsetX/Y` to shift off center.
 
-## Plugin
+## Plugin & Font Attribution
 
 *   `id: george.omarkmeter` — `name: Omark Meter` — `kinds: [service]` — `entryPoints.service: Clock.qml`
-*   Fonts: `assets/MovingSkate.ttf` (personal-use, Typhoon Type), `assets/Montserrat-*.otf` (OFL)
+*   **Fonts & Licenses:**
+    *   **Montserrat-SemiBold.ttf**: Google Fonts (Julieta Ulanovsky), SIL Open Font License 1.1 (`assets/OFL.txt`). Source: [google/fonts/ofl/montserrat](https://github.com/google/fonts/tree/main/ofl/montserrat). SHA-256: `e3e1c254ac42e0de79d337a45c39c9421e49e032365d56f3edf58eacfd1c7845`.
+    *   **DancingScript.ttf**: Google Fonts (Impallari Type), SIL Open Font License 1.1 (`assets/OFL.txt`). Source: [google/fonts/ofl/dancingscript](https://github.com/google/fonts/tree/main/ofl/dancingscript). SHA-256: `21808625578fe8d8cd10cb684be546dca077b27cd03a53a2f1ec11dc743c924c`.
 
 ## License
 
-MIT — see `LICENSE` (fonts have their own licenses).
+*   **Omark Meter (Code):** MIT — see `LICENSE`.
+*   **Fonts:** SIL Open Font License 1.1 — see `assets/OFL.txt`.
 

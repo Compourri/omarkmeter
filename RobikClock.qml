@@ -18,9 +18,9 @@ Item {
   property color heroColor: Qt.rgba(1, 1, 1, 0.72)
   property color dateColor: "white"
 
-  // Fonts — MovingSkate for weekday script, Montserrat SemiBold for hero clock (middleground + touch heavier)
-  FontLoader { id: scriptFont; source: Qt.resolvedUrl("assets/MovingSkate.ttf") }
-  FontLoader { id: clockFont; source: Qt.resolvedUrl("assets/Montserrat-SemiBold.otf") }
+  // Fonts — DancingScript for weekday script, Montserrat-SemiBold for hero clock
+  FontLoader { id: scriptFont; source: Qt.resolvedUrl("assets/DancingScript.ttf") }
+  FontLoader { id: clockFont; source: Qt.resolvedUrl("assets/Montserrat-SemiBold.ttf") }
 
   // Helpers (24h colon as requested: 16:23)
   readonly property string timeText: Qt.formatDateTime(root.date, "hh:mm")
@@ -48,7 +48,7 @@ Item {
         text: root.timeText
         color: root.heroColor
         opacity: root.heroOpacity
-        font.family: clockFont.status === FontLoader.Ready ? clockFont.name : "Montserrat SemiBold"
+        font.family: clockFont.status === FontLoader.Ready ? clockFont.name : "Montserrat"
         font.pixelSize: root.heroSize
         font.weight: Font.DemiBold
         font.letterSpacing: -4
