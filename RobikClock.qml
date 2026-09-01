@@ -22,8 +22,8 @@ Item {
   FontLoader { id: scriptFont; source: Qt.resolvedUrl("assets/MovingSkate.ttf") }
   FontLoader { id: clockFont; source: Qt.resolvedUrl("assets/Montserrat-SemiBold.otf") }
 
-  // Helpers (24h dot as requested: 12.20 not 12:20)
-  readonly property string timeText: Qt.formatDateTime(root.date, "hh.mm")
+  // Helpers (24h colon as requested: 16:23)
+  readonly property string timeText: Qt.formatDateTime(root.date, "hh:mm")
   readonly property string weekdayText: Qt.locale("en_US").dayName(root.date.getDay(), Locale.LongFormat)
   readonly property string dateText: Qt.formatDate(root.date, "d MMMM yyyy").toUpperCase()
 
