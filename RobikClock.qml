@@ -19,7 +19,7 @@ Item {
   property color heroColor: Qt.rgba(1, 1, 1, 0.72)
   property color dateColor: "white"
 
-  // Fonts — Freehand (OFL, Danh Hong) for weekday script, Montserrat SemiBold for hero clock (middleground + touch heavier)
+  // Fonts — Freehand (OFL, Danh Hong) for weekday script, Montserrat SemiBold for hero clock (middle ground + touch heavier)
   FontLoader { id: scriptFont; source: Qt.resolvedUrl("assets/Freehand-Regular.ttf") }
   FontLoader { id: clockFont; source: Qt.resolvedUrl("assets/Montserrat-SemiBold.otf") }
 
@@ -43,7 +43,7 @@ Item {
     Item {
       id: heroWrap
       anchors.horizontalCenter: parent.horizontalCenter
-      width: heroText.implicitWidth
+      width: Math.min(heroText.implicitWidth, parent.width)
       // include buffer for rotated script (rotated bounds exceed implicitHeight)
       height: Math.max(heroText.implicitHeight, scriptText.implicitHeight + 16)
 

@@ -6,7 +6,7 @@ Robik-inspired Rainmeter clock for Omarchy (Hyprland + Quickshell) — renders o
 
 ## Features (MVP)
 
-*   Huge translucent time `HH:mm` (colon separator, 24h) — **Montserrat SemiBold 600** (middleground between Thin/ExtraBold)
+*   Huge translucent time `HH:mm` (colon separator, 24h) — **Montserrat SemiBold 600** (middle ground between Thin/ExtraBold)
 *   Script weekday overlay — **Freehand** (brush, OFL — Danh Hong/Google Fonts, replacement for `MovingSkate` personal-use)
 *   Divider + `D MMMM YYYY` date
 *   Theme-following accent (`Color.accent`)
@@ -39,7 +39,7 @@ Add to `~/.config/omarchy/shell.json` `plugins: [{id:"george.omarkmeter"}]` is h
 
 *   `HH:mm` (24h) — `hh` was 12h. Locale-unified weekday/date via `Qt.formatDate`. Removed double `toUpperCase` + `AllUppercase` redundancy.
 *   `SystemClock.Minutes` (was `Seconds`, 60× fewer wakeups). Divider now follows `dateColor`. Proportional `letterSpacing`, smooth rotated script.
-*   Trimmed `assets/` from 2.8 MB → 0.55 MB (removed 5 unused Montserrat weights; swapped `MovingSkate` personal-use → OFL `Freehand`).
+*   Trimmed `assets/` from 2.8 MB → 0.55 MB (removed 5 Montserrat weights + `MovingSkate`/`GreatVibes`; swapped to OFL `Freehand` + bundled `OFL-*.txt`).
 
 ## License
 

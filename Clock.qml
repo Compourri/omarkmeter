@@ -35,6 +35,7 @@ Item {
   // user-visible notifier for Process failures (falls back to console if notify-send missing)
   Process {
     id: notifier
+    command: []
   }
 
   function notifyFail(title, msg) {
