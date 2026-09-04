@@ -6,16 +6,17 @@ import qs.Commons
 
 // Service entry point for george.omarkmeter
 // Renders a Robik-inspired clock on WlrLayer.Background per monitor.
-// MVP: hero time (hh.mm dot) + script weekday + date.
+// MVP: hero time (HH:mm colon, 24h) + script weekday + date.
 // Phase 2 slots (visualizer/metrics) left as Loaders with active:false.
 
 Item {
   id: root
 
   // Single clock drives every screen — avoids per-panel drift
+  // Minutes precision: HH:mm only needs minute ticks (60x fewer wakeups than Seconds)
   SystemClock {
     id: sysClock
-    precision: SystemClock.Seconds
+    precision: SystemClock.Minutes
   }
   property date now: sysClock.date
 
@@ -31,13 +32,40 @@ Item {
     if (!themeSwitchProc.running) themeSwitchProc.running = true
   }
 
+  // user-visible notifier for Process failures (falls back to console if notify-send missing)
+  Process {
+    id: notifier
+  }
+
+  function notifyFail(title, msg) {
+    console.warn("[omarkmeter]", title + ":", msg)
+    // Quickshell.execDetached if available, else reuse notifier Process with notify-send
+    if (typeof Quickshell.execDetached === "function") {
+      try { Quickshell.execDetached(["notify-send", "-u", "low", "Omark Meter", title + " — " + msg]); return } catch (e) {}
+    }
+    notifier.command = ["notify-send", "-u", "low", "Omark Meter", title + " — " + msg]
+    notifier.running = true
+  }
+
   Process {
     id: bgSwitchProc
     command: ["bash", "-c", "background=$(omarchy-theme-bg-switcher); [[ -n $background ]] && omarchy-theme-bg-set \"$background\""]
+    onExited: function(exitCode) {
+      if (exitCode !== 0) root.notifyFail("bg switcher failed", "exit " + exitCode + " — is omarchy-theme-bg-switcher installed?")
+    }
   }
   Process {
     id: themeSwitchProc
     command: ["bash", "-c", "theme=$(omarchy-theme-switcher); [[ -n $theme ]] && omarchy-theme-set \"$theme\" >/dev/null 2>&1 &"]
+    onExited: function(exitCode) {
+      if (exitCode !== 0) root.notifyFail("theme switcher failed", "exit " + exitCode)
+    }
+  }
+
+  Component.onDestruction: {
+    if (bgSwitchProc.running) bgSwitchProc.running = false
+    if (themeSwitchProc.running) themeSwitchProc.running = false
+    if (notifier.running) notifier.running = false
   }
 
   Variants {
@@ -55,7 +83,7 @@ Item {
       exclusionMode: ExclusionMode.Ignore
       visible: true
 
-      WlrLayershell.namespace: "george-omarkmeter"
+      WlrLayershell.namespace: "george.omarkmeter"
       WlrLayershell.layer: WlrLayer.Background
       WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
 
@@ -99,6 +127,9 @@ Item {
       MouseArea {
         anchors.fill: parent
         acceptedButtons: Qt.LeftButton | Qt.RightButton
+        // true so single-clicks pass through to omarchy.background / other Background widgets;
+        // double-click is still consumed via mouse.accepted = true
+        propagateComposedEvents: true
         onDoubleClicked: function(mouse) {
           if (mouse.button === Qt.RightButton) root.openThemeSwitcher()
           else root.openSelector()

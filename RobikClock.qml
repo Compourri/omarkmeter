@@ -1,13 +1,14 @@
 import QtQuick
-import qs.Commons
 
 // Pure visual — no Wayland, no timers. Clock.qml owns time and passes `date` in.
+// No qs.Commons import here — stays standalone for qmllint/preview outside Omarchy.
+// Clock.qml (Omarchy) passes accent: Color.accent in.
 Item {
   id: root
 
   property date date: new Date()
-  // Theme-following accent (Color.accent). Falls back to Robik orange before Color loads.
-  property color accent: Color.accent || "#ec9844"
+  // Theme-following accent passed from Clock.qml; defaults to Robik orange standalone.
+  property color accent: "#ec9844"
 
   // Layout knobs — tweak here to match wallpaper focal point
   property int heroSize: 132
@@ -18,20 +19,23 @@ Item {
   property color heroColor: Qt.rgba(1, 1, 1, 0.72)
   property color dateColor: "white"
 
-  // Fonts — MovingSkate for weekday script, Montserrat SemiBold for hero clock (middleground + touch heavier)
-  FontLoader { id: scriptFont; source: Qt.resolvedUrl("assets/MovingSkate.ttf") }
+  // Fonts — Freehand (OFL, Danh Hong) for weekday script, Montserrat SemiBold for hero clock (middleground + touch heavier)
+  FontLoader { id: scriptFont; source: Qt.resolvedUrl("assets/Freehand-Regular.ttf") }
   FontLoader { id: clockFont; source: Qt.resolvedUrl("assets/Montserrat-SemiBold.otf") }
 
-  // Helpers (24h colon as requested: 16:23)
-  readonly property string timeText: Qt.formatDateTime(root.date, "hh:mm")
-  readonly property string weekdayText: Qt.locale("en_US").dayName(root.date.getDay(), Locale.LongFormat)
-  readonly property string dateText: Qt.formatDate(root.date, "d MMMM yyyy").toUpperCase()
+  // Helpers (24h colon as requested: 16:23 — HH is 24h, hh is 12h)
+  readonly property string timeText: Qt.formatDateTime(root.date, "HH:mm")
+  readonly property string weekdayText: Qt.formatDate(root.date, "dddd")
+  readonly property string dateText: Qt.formatDate(root.date, "d MMMM yyyy")
 
   implicitWidth: 560
   implicitHeight: column.implicitHeight
+  // responsive clamp: prevents clipping on small screens/ultrawide (PanelWindow fills screen)
+  width: parent ? Math.min(implicitWidth, parent.width - 32) : implicitWidth
 
   Column {
     id: column
+    width: parent.width
     anchors.horizontalCenter: parent.horizontalCenter
     spacing: 0
 
@@ -40,7 +44,8 @@ Item {
       id: heroWrap
       anchors.horizontalCenter: parent.horizontalCenter
       width: heroText.implicitWidth
-      height: heroText.implicitHeight
+      // include buffer for rotated script (rotated bounds exceed implicitHeight)
+      height: Math.max(heroText.implicitHeight, scriptText.implicitHeight + 16)
 
       Text {
         id: heroText
@@ -48,11 +53,14 @@ Item {
         text: root.timeText
         color: root.heroColor
         opacity: root.heroOpacity
-        font.family: clockFont.status === FontLoader.Ready ? clockFont.name : "Montserrat SemiBold"
+        font.family: clockFont.status === FontLoader.Ready ? clockFont.name : "Montserrat"
         font.pixelSize: root.heroSize
         font.weight: Font.DemiBold
-        font.letterSpacing: -4
+        font.letterSpacing: -4 * (root.heroSize / 132)
         horizontalAlignment: Text.AlignHCenter
+        // subtle outline keeps 0.42 effective alpha readable on bright wallpapers
+        style: Text.Outline
+        styleColor: Qt.rgba(0, 0, 0, 0.28)
       }
 
       Text {
@@ -70,6 +78,9 @@ Item {
         styleColor: Qt.rgba(0, 0, 0, 0.45)
         horizontalAlignment: Text.AlignHCenter
         // Robik script leans inline — slight rotation makes it feel handwritten
+        // layer enabled for smooth rotated rasterization
+        layer.enabled: true
+        layer.smooth: true
         rotation: -4
         transformOrigin: Item.Center
       }
@@ -88,7 +99,7 @@ Item {
         width: root.dividerWidth
         height: 2
         radius: 1
-        color: "white"
+        color: root.dateColor
         opacity: 0.92
       }
     }
@@ -99,7 +110,7 @@ Item {
       text: root.dateText
       color: root.dateColor
       opacity: 0.96
-      font.family: clockFont.status === FontLoader.Ready ? clockFont.name : Style.font.family
+      font.family: clockFont.status === FontLoader.Ready ? clockFont.name : "Montserrat"
       font.pixelSize: root.dateSize
       font.weight: Font.DemiBold
       font.letterSpacing: 1.1
