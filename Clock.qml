@@ -103,25 +103,46 @@ Item {
           accent: Color.accent
         }
 
-        // Phase 2 modular containers — inactive in MVP, zero cost
-        // Visualizer: mpris/pipewire-driven bars below metrics row (see Robik bottom waveform)
+        // Weather Widget (top-left above time as in mock-up)
         Loader {
-          id: visualizerLoader
-          active: false
-          // source: Qt.resolvedUrl("Visualizer.qml")
-          anchors.horizontalCenter: parent.horizontalCenter
-          anchors.bottom: parent.bottom
-          anchors.bottomMargin: 80
+          id: weatherLoader
+          active: true
+          source: Qt.resolvedUrl("WeatherWidget.qml")
+          anchors.horizontalCenter: clock.horizontalCenter
+          anchors.horizontalCenterOffset: -200
+          anchors.bottom: clock.top
+          anchors.bottomMargin: 20
         }
 
-        // Metrics: HDD/RAM/CPU/network sparklines — two-column grid
+        // Media Widget (top-right balanced)
+        Loader {
+          id: mediaLoader
+          active: true
+          source: Qt.resolvedUrl("MediaWidget.qml")
+          anchors.horizontalCenter: clock.horizontalCenter
+          anchors.horizontalCenterOffset: 200
+          anchors.bottom: clock.top
+          anchors.bottomMargin: 20
+        }
+
+        // Visualizer: mpris/pipewire-driven bars at bottom (Robik bottom waveform)
+        Loader {
+          id: visualizerLoader
+          active: true
+          source: Qt.resolvedUrl("VisualizerWidget.qml")
+          anchors.horizontalCenter: parent.horizontalCenter
+          anchors.bottom: parent.bottom
+          anchors.bottomMargin: 60
+        }
+
+        // Metrics: HDD/RAM/CPU/network sparklines below clock
         Loader {
           id: metricsLoader
-          active: false
-          // source: Qt.resolvedUrl("Metrics.qml")
+          active: true
+          source: Qt.resolvedUrl("MetricsWidget.qml")
           anchors.horizontalCenter: parent.horizontalCenter
           anchors.top: clock.bottom
-          anchors.topMargin: 32
+          anchors.topMargin: 24
         }
       }
 
