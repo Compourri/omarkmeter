@@ -34,6 +34,20 @@ Item {
     onTriggered: { if (!weatherProc.running) weatherProc.running = true }
   }
 
+  // Safety net: the helper enforces its own 8s deadline, but don't leave a
+  // stuck process running if that ever fails.
+  Timer {
+    interval: 15000
+    running: true
+    repeat: true
+    onTriggered: {
+      if (weatherProc.running) {
+        weatherProc.running = false
+        weatherProc.running = true
+      }
+    }
+  }
+
   visible: root.condition !== "" && root.condition !== "--"
 
   implicitWidth: 150
