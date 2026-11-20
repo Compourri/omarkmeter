@@ -19,9 +19,17 @@ Item {
         if (!s) return
         var parts = s.split("|")
         if (parts.length >= 3) {
-          root.icon = parts[0]
-          root.condition = parts[1]
-          root.temperature = parts[2]
+          var icon = String(parts[0])
+          var condition = String(parts[1])
+          var temperature = String(parts[2])
+          // Only accept the helper's constrained output shape; never render
+          // remote-controlled markup.
+          if (!/^[^\r\n|]{1,8}$/.test(icon)) return
+          if (!/^[A-Z0-9 ]{1,40}$/.test(condition)) return
+          if (!/^-?\d+(?:\.\d+)?°C$/.test(temperature)) return
+          root.icon = icon
+          root.condition = condition
+          root.temperature = temperature
         }
       }
     }
@@ -59,6 +67,7 @@ Item {
 
     Text {
       text: root.icon || "☀"
+      textFormat: Text.PlainText
       font.pixelSize: 24
       color: root.accent
       anchors.verticalCenter: parent.verticalCenter
@@ -70,6 +79,7 @@ Item {
 
       Text {
         text: root.condition
+        textFormat: Text.PlainText
         font.family: "Montserrat"
         font.pixelSize: 10
         font.weight: Font.DemiBold
@@ -79,6 +89,7 @@ Item {
 
       Text {
         text: root.temperature
+        textFormat: Text.PlainText
         font.family: "Montserrat"
         font.pixelSize: 12
         font.weight: Font.Bold
