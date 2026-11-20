@@ -35,8 +35,15 @@ def _expire(signum, frame):
 
 class NoRedirectHandler(urllib.request.HTTPRedirectHandler):
     def _block(self, req, fp, code, msg, headers):
-        raise urllib.error.HTTPError(req.full_url, code, msg, headers, fp)
+        # Close the (possibly large) redirect response body without reading it,
+        # so a compromised endpoint cannot force memory allocation here.
+        try:
+            fp.close()
+        except Exception:
+            pass
+        raise urllib.error.HTTPError(req.full_url, code, msg, headers, None)
 
+    http_error_300 = _block
     http_error_301 = _block
     http_error_302 = _block
     http_error_303 = _block
@@ -48,7 +55,8 @@ def read_location_query():
     """Reuse Omarchy's shared weather location (weather.json) when present."""
     try:
         with open(LOCATION_FILE, "r", encoding="utf-8") as fh:
-            data = json.load(fh)
+            raw = fh.read(64 * 1024)
+        data = json.loads(raw)
     except (OSError, ValueError, TypeError):
         return ""
     if not isinstance(data, dict):
